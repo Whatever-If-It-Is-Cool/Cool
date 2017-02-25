@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <h1>CyNote</h1>
+
 <head>
-  <meta charset="utf-8">
-  
-  <title>CyNote</title>
- 
- 
-<script language = JavaScript>
-function password() {
-	var testV = 1;
-	var pass1 = prompt('please enter password:', '');
-	while (testV < 3) {
-		if (!pass1) history.go(-1);
-		if (pass1 == "123456") {
-			alert('access permit!');
-			break;
+	<meta charset="utf-8">
+
+	<title>CyNote</title>
+
+
+	<script language=J avaScript>
+		function password() {
+			var testV = 1;
+			var pass1 = prompt('please enter password:', '');
+			while (testV < 3) {
+				if (!pass1) history.go(-1);
+				if (pass1 == "123456") {
+					alert('access permit!');
+					break;
+				}
+				testV += 1;
+				var pass1 = prompt('wrong password, please enter again:');
+			}
+			if (pass1 != "password" & testV > 3)
+				window.close();
 		}
-		testV += 1;
-		var pass1 = prompt('wrong password, please enter again:');
-	}
-	if (pass1 != "password" & testV > 3) 
-	window.close();
-}
-document.write(password());
-</script>
-  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
-  <meta name="author" content="Vincent Garreau" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" media="screen" href="css/style.css">
+		document.write(password());
+	</script>
+	<meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+	<meta name="author" content="Vincent Garreau" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" media="screen" href="css/style.css">
 </head>
+
 <body>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
 
 
-<div id="buttonlist" class="button-list">
-  <button v-for="i in buttons">{{i}}</button>
-  
-</div>
+	<div id="buttonlist" class="button-list">
+		<button v-for="i in buttons">{{i}}</button>
+
+	</div>
 
 
-<!-- particles.js container -->
-<div id="particles-js"></div>
+	<!-- particles.js container -->
+	<div id="particles-js"></div>
 
-<!-- scripts -->
-<script src="../particles.js"></script>
-<script src="js/app.js"></script>
-<script src="abe.js"></script>
+	<!-- scripts -->
+	<script src="../particles.js"></script>
+	<script src="js/app.js"></script>
+	<script src="abe.js"></script>
 
 
 
 </body>
+
 </html>
