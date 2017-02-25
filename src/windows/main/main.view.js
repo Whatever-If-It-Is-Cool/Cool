@@ -12,7 +12,7 @@ const {
 
 function test() {
     console.log(ipcRenderer.sendSync('synchronous-message', 'ping')); // prints "pong"
-
+    //test
     ipcRenderer.on('asynchronous-reply', (event, arg) => {
         console.log(arg); // prints "pong"
     })
