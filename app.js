@@ -43,6 +43,7 @@ ipcMain.on('switchto', (event, arg) => {
     mainWindow.loadURL('file://' + __dirname + '/src/windows/' + arg + '.html');
 });
 ipcMain.on('createcourse', (event, arg) => {
+    addSemester(arg[1]);
     for (var i = 0; i < arg[0].length; i++) {
         var days = [];
         if (arg[0][i].mon == true) {
@@ -147,7 +148,7 @@ function addClass(semester, className, section, startTime, endTime, day, color) 
             }
         }
 
-        fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+        fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
             if (err) {
                 return console.error(err);
             }
@@ -158,7 +159,7 @@ function addClass(semester, className, section, startTime, endTime, day, color) 
 }
 
 function deleteClass(semester, className, section) {
-    fs.readFile('../source/class.json', function (err, data) {
+    fs.readFile('./source/class.json', function (err, data) {
         if (err) {
             return console.error(err);
         }
@@ -197,7 +198,7 @@ function deleteClass(semester, className, section) {
         }
 
 
-        fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+        fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
             if (err) {
                 return console.error(err);
             }
@@ -211,7 +212,7 @@ function deleteClass(semester, className, section) {
 
 function addSemester(id) {
     var flag = true;
-    fs.readFile('../source/class.json', function (err, data) {
+    fs.readFile('./source/class.json', function (err, data) {
         if (err) {
             return console.error(err);
             // return;
@@ -233,7 +234,7 @@ function addSemester(id) {
                 "id": id
             };
             //console.log(obj);
-            fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
                 if (err) {
                     return console.error(err);
                     // return;
@@ -247,7 +248,7 @@ function addSemester(id) {
 
 //删除学期，id是“Fall 2016”这样的形式
 function deleteSemester(id) {
-    fs.readFile('../source/class.json', function (err, data) {
+    fs.readFile('./source/class.json', function (err, data) {
         if (err) {
             return console.error(err);
         }
@@ -273,7 +274,7 @@ function deleteSemester(id) {
         }
 
 
-        fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+        fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
             if (err) {
                 return console.error(err);
             }
