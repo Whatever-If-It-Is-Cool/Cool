@@ -71,12 +71,24 @@ var main = new Vue({
                 case 2:
                     this.title = 'Course';
                     this.content = 'Click add next course to add a new course, or next to process next step';
-                    this.secondbutton = 'Add next course';
+                    this.secondbutton = 'Add another course';
                     this.placeholer = 'Course id'
                     this.step = 2;
                     this.lable = false;
                     this.tiger = true;
                     this.icon = 'hand-o-up';
+                    this.courses.push({
+                        courseid: '',
+                        section: '',
+                        starttime: '',
+                        endtime: '',
+                        mon: false,
+                        tue: false,
+                        wed: false,
+                        thu: false,
+                        fri: false,
+                        color: ''
+                    });
                     break;
                 case 3:
 

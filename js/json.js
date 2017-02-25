@@ -188,7 +188,7 @@ function findNote(semester, className, section) {
 
 }
 
-function listsemester(pointer) {
+function listsemester() {
     var semesters = [];
     fs.readFile('../source/class.json', function (err, data) {
         //var semesters = [];
@@ -206,7 +206,7 @@ function listsemester(pointer) {
         //return pointer;
     });
     fs.close;
-    return pointer(semesters);
+    return semesters;
 }
 
 var fs = require("fs");

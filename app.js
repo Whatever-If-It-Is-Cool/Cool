@@ -43,7 +43,6 @@ ipcMain.on('switchto', (event, arg) => {
     mainWindow.loadURL('file://' + __dirname + '/src/windows/' + arg + '.html');
 });
 ipcMain.on('createsemester', (event, arg) => {
-    console.log(arg);
     addSemester(arg);
 });
 
@@ -106,7 +105,6 @@ ipcMain.on('processwindow', (event, arg) => {
     settingsWindow.loadURL('file://' + __dirname + '/src/windows/start/start.html');
 
     settingsWindow.on('closed', function () {
-        console.log('closed');
         settingsWindow = null;
     });
 });
@@ -313,6 +311,27 @@ function deleteSemester(id) {
     });
 }
 
+function listsemester() {
+    var semesters = [];
+    fs.readFile('./source/class.json', function (err, data) {
+        //var semesters = [];
+        if (err) {
+            return console.error(err);
+        }
+        var obj = JSON.parse(data);
+        var length = Object.size(obj) + 1;
+
+        for (var i = 1; i < length; i++) {
+            var sem = "semester" + i;
+            semesters.push(obj[sem].id);
+            //console.log(semesters);
+        }
+        //return pointer;
+    });
+    fs.close;
+    return semesters;
+}
+
 function addClassSync(classes) {
     // var newData = {
     //     "className": className,
@@ -337,7 +356,7 @@ function addClassSync(classes) {
 
         for (var i = 1; i < length; i++) {
             var sem = "semester" + i;
-            if (obj[sem].id.localeCompare(classes.class2.semester) == 0) {
+            if (obj[sem].id.localeCompare(classes.class1.semester) == 0) {
                 var numClass = Object.size(obj[sem]);
                 // hasSemester = true;
                 // for (var j = 1; j < numClass; j++) {
