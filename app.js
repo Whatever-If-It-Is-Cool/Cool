@@ -311,7 +311,7 @@ function deleteSemester(id) {
     });
 }
 
-function listsemester() {
+function listsemester(pointer) {
     var semesters = [];
     fs.readFile('../source/class.json', function (err, data) {
         if (err) {
