@@ -24,7 +24,7 @@ function createWindow() {
         width: 1920,
         height: 1080
     });
-    addClass("test1231231", "COMS 353", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
+    //addClass("test1231231", "COMS 353", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
     // 通过浏览器窗口对象加载index.html文件，同时也是可以加载一个互联网地址的
     // 同时也可以简化成：mainWindow.loadURL('./index.html');
     mainWindow.loadURL('file://' + __dirname + '/welcompage/welcomPage/welcomPage.html');
@@ -43,7 +43,7 @@ ipcMain.on('switchto', (event, arg) => {
     mainWindow.loadURL('file://' + __dirname + '/src/windows/' + arg + '.html');
 });
 ipcMain.on('createsemester', (event, arg) => {
-    // addSemester(arg);
+    addSemester(arg);
 });
 
 ipcMain.on('close-start-window', (event, arg) => {
@@ -85,7 +85,7 @@ ipcMain.on('createcourse', (event, arg) => {
             note: []
         };
     }
-    // addClassSync(classes);
+    addClassSync(classes);
     console.log(listsemester(function (resoponse) {
         console.log(resoponse);
     }));
@@ -358,27 +358,13 @@ function addClassSync(classes) {
             var sem = "semester" + i;
             if (obj[sem].id.localeCompare(classes.class1.semester) == 0) {
                 var numClass = Object.size(obj[sem]);
-                // hasSemester = true;
-                // for (var j = 1; j < numClass; j++) {
-                //     var checkClass = "class" + j;
-                //     if ((obj[sem][checkClass].className.localeCompare(className) == 0) &&
-                //         (obj[sem][checkClass].section.localeCompare(section) == 0)) {
-                //         hasSameClass = true;
-                //         return -1;
-                //     }
-                // }
-                // if (!hasSameClass) {
-                //     var newClass = "class" + numClass;
-                //     obj[sem][newClass] = newData;
-                // }
-
 
                 var size = Object.size(classes);
                 //var size = classes.length
                 for (var k = 0; k < size; k++) {
                     var newClass = "class" + (numClass + k);
                     var temp = "class" + (k + 1);
-                    console.log(temp);
+                    console.log("class " + temp);
                     var newData = {
                         "className": classes[temp].className,
                         "section": classes[temp].section,
