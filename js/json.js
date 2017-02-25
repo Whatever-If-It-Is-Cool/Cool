@@ -9,19 +9,32 @@ function deleteClass(className, section) {
 }
 
 function addSemester(id) {
-    fs.readFile('../class.json', function (err, data) {
+    fs.readFile('../source/class.json', function (err, data) {
         if (err) {
             return console.error(err);
         }
         var obj = JSON.parse(data);
-        //console.log("Asynchronous read: " + obj.semester1.class1.className);
         var length = Object.size(obj) + 1;
-        console.log(length);
         var newSem = "semester" + length;
-        console.log(newSem);
-        obj[length][0] = id;
-        console.log(obj);
-        console.log("Asynchronous read: " + obj[3][0]);
+        for (var i = 1; i < length; i++) {
+            var sem = "semester" + i;
+            if (obj[sem].id.localeCompare(id) == 0) {
+                console.log("check");
+                return -1;
+            }
+            console.log(obj[sem].id.localeCompare(id));
+        }
+        obj[newSem] = {
+            "id": id
+        };
+        //console.log(obj);
+        fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+        return 0;
+        //callback = 0;
     });
 }
 
@@ -40,4 +53,6 @@ Object.size = function (obj) {
     return size;
 };
 
-addSemester("Spring 2000");
+var temp = addSemester("Spring 2016");
+
+console.log(temp);

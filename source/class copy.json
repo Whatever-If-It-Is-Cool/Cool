@@ -20,6 +20,7 @@
             "note": ["Lecture 1", "Lecture 2"]
         }
     },
+
     "semester2": {
         "id": "Fall 2016",
         "class1": {
@@ -40,8 +41,5 @@
             "color": "blue",
             "note": ["Lecture 1", "Lecture 2"]
         }
-    },
-    "semester3": {
-        "id": "Spring 2016"
     }
 }
