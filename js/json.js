@@ -1,8 +1,8 @@
 var fs = require("fs");
 //var flag = true;
 
-function addClass(semester, className, section, starTime, endTime, day, color) {
-    var data = {
+function addClass(semester, className, section, startTime, endTime, day, color) {
+    var newData = {
         "className": className,
         "section": section,
         "startTime": startTime,
@@ -13,6 +13,42 @@ function addClass(semester, className, section, starTime, endTime, day, color) {
     };
 
     //读取文档找到正确位置插入
+    fs.readFile('../source/class.json', function (err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        var obj = JSON.parse(data);
+        var length = Object.size(obj) + 1;
+        var hasSameClass = false;
+
+        for (var i = 1; i < length; i++) {
+            var sem = "semester" + i;
+            if (obj[sem].id.localeCompare(semester) == 0) {
+                var numClass = Object.size(obj[sem]);
+                for (var j = 1; j < numClass; j++) {
+                    var checkClass = "class" + j;
+                    if ((obj[sem][checkClass].className.localeCompare(className) == 0) &&
+                        (obj[sem][checkClass].section.localeCompare(section) == 0)) {
+                        hasSameClass = true;
+                        return -1;
+                    }
+                }
+                if (!hasSameClass) {
+                    var newClass = "class" + numClass;
+                    //obj[sem][newClass] = JSON.parse(newData);
+                    obj[sem][newClass] = newData;
+                }
+            }
+        }
+
+        fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+        if (hasSameClass) return -1;
+        else return 0;
+    });
 }
 
 function deleteClass(semester, className, section) {
@@ -42,11 +78,12 @@ function deleteClass(semester, className, section) {
                         var succ = j + 1;
                         var temp = "class" + succ;
                         obj[sem][newClass] = obj[sem][temp];
-                        console.log("shift" + newClass);
+                        //console.log("shift " + newClass);
                     }
                     if (j = (length - 1)) {
-                        delete obj[sem][newClass];
-                        console.log("delelte last element");
+                        var lastClass = "class" + j;
+                        delete obj[sem][lastClass];
+                        //console.log("delelte last element " + newClass + " " + j + " " + lastClass);
                     }
 
                 }
@@ -153,6 +190,10 @@ Object.size = function (obj) {
 // var temp = addSemester("Fall 2018");
 // console.log(temp);
 
-//deleteClass("Spring 2016");
+//deleteSemester("Spring 2016");
+
 //semester, className, section
-deleteClass("Fall 2016", "COMS 309", "1");
+//deleteClass("Fall 2016", "COMS 309", "1");
+
+//semester, className, section, starTime, endTime, day, color
+addClass("Fall 2016", "COMS 331", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
