@@ -114,18 +114,12 @@ h1 {
 .button-list {
   position: absolute;
   left: 20%;
-  top: 70%;
-  
+  top: 60%;
 }
 
-
 button {
-  height: 100px;
-  width: 150px;
-  border-radius: 15px;
   border: 1px solid #000;
-  background-color:lightyellow;
-  margin: 10px;
+  background-color: yellow;
 }
 
 blockquote,
@@ -206,7 +200,6 @@ body {
 
 canvas {
   display: block;
-  vertical-align: bottom;
 }
 
 
@@ -234,7 +227,6 @@ canvas {
 
 #stats,
 .count-particles {
-  -webkit-user-select: none;
   margin-top: 5px;
   margin-left: 5px;
 }
