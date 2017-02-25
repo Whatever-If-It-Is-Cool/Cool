@@ -313,8 +313,7 @@ function deleteSemester(id) {
 
 function listsemester() {
     var semesters = [];
-    fs.readFile('./source/class.json', function (err, data) {
-        //var semesters = [];
+    fs.readFile('../source/class.json', function (err, data) {
         if (err) {
             return console.error(err);
         }
@@ -324,12 +323,10 @@ function listsemester() {
         for (var i = 1; i < length; i++) {
             var sem = "semester" + i;
             semesters.push(obj[sem].id);
-            //console.log(semesters);
         }
-        //return pointer;
+        return pointer(semesters);
     });
     fs.close;
-    return semesters;
 }
 
 function addClassSync(classes) {
