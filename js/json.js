@@ -188,7 +188,7 @@ function findNote(semester, className, section) {
 
 }
 
-function listsemester() {
+function listsemester(pointer) {
     var semesters = [];
     fs.readFile('../source/class.json', function (err, data) {
         if (err) {
@@ -230,18 +230,6 @@ Object.size = function (obj) {
 //addSemester("test4");
 
 function addClassSync(classes) {
-    // var newData = {
-    //     "className": className,
-    //     "section": section,
-    //     "startTime": startTime,
-    //     "endTime": endTime,
-    //     "day": day,
-    //     "color": color,
-    //     "note": []
-    // };
-
-    //读取文档找到正确位置插入
-    //var data = fs.readFileSync('../class.json');
     fs.readFile('../source/class.json', function (err, data) {
         if (err) {
             return console.error(err);
@@ -255,21 +243,6 @@ function addClassSync(classes) {
             var sem = "semester" + i;
             if (obj[sem].id.localeCompare(classes.class.semester) == 0) {
                 var numClass = Object.size(obj[sem]);
-                // hasSemester = true;
-                // for (var j = 1; j < numClass; j++) {
-                //     var checkClass = "class" + j;
-                //     if ((obj[sem][checkClass].className.localeCompare(className) == 0) &&
-                //         (obj[sem][checkClass].section.localeCompare(section) == 0)) {
-                //         hasSameClass = true;
-                //         return -1;
-                //     }
-                // }
-                // if (!hasSameClass) {
-                //     var newClass = "class" + numClass;
-                //     obj[sem][newClass] = newData;
-                // }
-
-
                 var size = Object.size(classes);
                 //var size = classes.length
                 for (var k = 0; k < size; k++) {
@@ -302,38 +275,38 @@ function addClassSync(classes) {
     });
 }
 
-classes = {
-    "class1": {
-        "semester": "test",
-        "className": "COMS 362",
-        "section": "1",
-        "startTime": "4:10",
-        "endTime": "5:10",
-        "day": ["Mon", "Wed", "Fri"],
-        "color": "none",
-        "note": []
-    },
-    "class2": {
-        "semester": "test",
-        "className": "COMS 372",
-        "section": "1",
-        "startTime": "4:10",
-        "endTime": "5:10",
-        "day": ["Mon", "Wed", "Fri"],
-        "color": "none",
-        "note": []
-    },
-    "class3": {
-        "semester": "test",
-        "className": "COMS 378",
-        "section": "1",
-        "startTime": "4:10",
-        "endTime": "5:10",
-        "day": ["Mon", "Wed", "Fri"],
-        "color": "none",
-        "note": []
-    }
-};
+// classes = {
+//     "class1": {
+//         "semester": "test",
+//         "className": "COMS 362",
+//         "section": "1",
+//         "startTime": "4:10",
+//         "endTime": "5:10",
+//         "day": ["Mon", "Wed", "Fri"],
+//         "color": "none",
+//         "note": []
+//     },
+//     "class2": {
+//         "semester": "test",
+//         "className": "COMS 372",
+//         "section": "1",
+//         "startTime": "4:10",
+//         "endTime": "5:10",
+//         "day": ["Mon", "Wed", "Fri"],
+//         "color": "none",
+//         "note": []
+//     },
+//     "class3": {
+//         "semester": "test",
+//         "className": "COMS 378",
+//         "section": "1",
+//         "startTime": "4:10",
+//         "endTime": "5:10",
+//         "day": ["Mon", "Wed", "Fri"],
+//         "color": "none",
+//         "note": []
+//     }
+// };
 //addClassSync(classes);
 // addClass("test1231231", "COMS 371", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
 // addClass("test1231231", "COMS 372", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
@@ -342,7 +315,7 @@ classes = {
 // function log(message) {
 //     console.log(message);
 // }
-listsemester(function (response, data) {
+listsemester(function (response) {
     console.log(response);
-    console.log(data);
+    //console.log(data);
 });
