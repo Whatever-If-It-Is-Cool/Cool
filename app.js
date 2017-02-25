@@ -30,7 +30,7 @@ function createWindow() {
     mainWindow.loadURL('file://' + __dirname + '/welcompage/welcomPage/welcomPage.html');
     // mainWindow.loadURL('http://www.sushithedog.com');
     // 打开程序的同时打开开发者工具
-    mainWindow.openDevTools();
+    // mainWindow.openDevTools();
     // 监听浏览器窗口对象是否关闭，关闭之后直接将mainWindow指向空引用，也就是回收对象内存空间
     mainWindow.on("closed", function () {
         mainWindow = null;
@@ -57,7 +57,9 @@ ipcMain.on('getsemester', (event, arg) => {
     })
 
 });
-
+ipcMain.on('switchtotable', (event, arg) => {
+    console.log(arg);
+});
 ipcMain.on('createcourse', (event, arg) => {
     var classes = new Object();
     for (var i = 0; i < arg[0].length; i++) {

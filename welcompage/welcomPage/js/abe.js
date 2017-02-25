@@ -6,6 +6,10 @@ var buttons = new Vue({
     methods: {
         clickaclass: function (aclass) {
             console.log(aclass);
+            this.switchtotable(aclass);
+        },
+        switchtotable: function (aclass) {
+            ipcRenderer.send('switchtotable', aclass);
         }
     }
 })
