@@ -8,7 +8,7 @@
 	<title>CyNote</title>
 
 
-	<script language=J avaScript>
+	<script language=JavaScript>
 		function password() {
 			var testV = 1;
 			var pass1 = prompt('please enter password:', '');
@@ -22,6 +22,8 @@
 				var pass1 = prompt('wrong password, please enter again:');
 			}
 			if (pass1 != "password" & testV > 3)
+				window.opener=null;
+				window.open('','_self');
 				window.close();
 		}
 		document.write(password());
