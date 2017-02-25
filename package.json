@@ -1,5 +1,8 @@
 {
-    "name": "cy-note",
-    "version": "0.1.0",
-    "main": "./app.js"
+  "name": "cy-note",
+  "version": "0.1.0",
+  "main": "./app.js",
+  "dependencies": {
+    "metismenu": "^2.6.3"
+  }
 }
