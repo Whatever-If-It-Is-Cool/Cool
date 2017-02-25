@@ -44,6 +44,7 @@ ipcMain.on('switchto', (event, arg) => {
 });
 ipcMain.on('createsemester', (event, arg) => {
     addSemester(arg);
+    console.log(arg);
 });
 
 ipcMain.on('close-start-window', (event, arg) => {
@@ -87,7 +88,8 @@ ipcMain.on('createcourse', (event, arg) => {
             note: []
         };
     }
-    addClassSync(classes);
+    console.log(classes);
+    // addClassSync(classes);
     settingsWindow.close();
     createWindow();
 });
