@@ -3,7 +3,8 @@
 var main = new Vue({
     el: '#app',
     data: {
-        message: 'Hello Vue.js!'
+        message: 'Hello Vue.js!',
+        buttons: [0, 1, 2, 3, 5, 6]
     }
 })
 const {
@@ -17,8 +18,4 @@ function test() {
         console.log(arg); // prints "pong"
     })
     ipcRenderer.send('asynchronous-message', 'ping');
-}
-
-function switchs() {
-    ipcRenderer.send('processwindow');
 }

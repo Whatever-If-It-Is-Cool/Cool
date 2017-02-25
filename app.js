@@ -14,6 +14,7 @@ const {
 // --- 窗口 ---
 // 声明一个BrowserWindow对象实例
 let mainWindow;
+var settingsWindow = null;
 
 
 //定义一个创建浏览器窗口的方法
@@ -21,8 +22,8 @@ function createWindow() {
     // 创建一个浏览器窗口对象，并指定窗口的大小
     // 1024×768 合理的窗口大小
     mainWindow = new BrowserWindow({
-        width: 1024,
-        height: 768
+        width: 1920,
+        height: 1080
     });
 
     // 通过浏览器窗口对象加载index.html文件，同时也是可以加载一个互联网地址的
@@ -38,12 +39,31 @@ function createWindow() {
 }
 ipcMain.on('asynchronous-message', (event, arg) => {
     event.sender.send('asynchronous-reply', 'pong')
-})
+});
+ipcMain.on('switchto', (event, arg) => {
+    mainWindow.loadURL('file://' + __dirname + '/src/windows/' + arg + '.html');
+});
+ipcMain.on('processwindow', (event, arg) => {
+    if (settingsWindow) {
+        return;
+    }
 
+    settingsWindow = new BrowserWindow({
+        height: 1920,
+        width: 1080
+    });
+
+    settingsWindow.loadURL('file://' + __dirname + '/src/windows/start/start.html');
+
+    settingsWindow.on('closed', function () {
+        console.log('closed');
+        settingsWindow = null;
+    });
+});
 ipcMain.on('synchronous-message', (event, arg) => {
-    console.log(arg) // prints "ping"
-    event.returnValue = 'pong'
-})
+    console.log(arg); // prints "ping"
+    event.returnValue = 'pong';
+});
 // 监听应用程序对象是否初始化完成，初始化完成之后即可创建浏览器窗口
 app.on("ready", createWindow);
 

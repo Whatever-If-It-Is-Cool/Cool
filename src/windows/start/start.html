@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Setting</title>
+
+    <link rel="stylesheet" href="../cynote.css">
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" id="app">
+            <div class="col-md-12 cynote-start well">
+                <div class="cynote-font-large">
+                    <i class="fa fa-book"></i>&nbsp; {{title}}
+                </div>
+                {{content}}
+                <hr>
+                <button v-if="skip" v-on:click="skipit">Skip</button>
+                <button v-on:click="next">Next Step</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="./start.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js">
+</script>
+
+</html>
