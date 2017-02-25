@@ -43,7 +43,7 @@ ipcMain.on('switchto', (event, arg) => {
     mainWindow.loadURL('file://' + __dirname + '/src/windows/' + arg + '.html');
 });
 ipcMain.on('createsemester', (event, arg) => {
-    addSemester(arg);
+    // addSemester(arg);
 });
 
 ipcMain.on('close-start-window', (event, arg) => {
@@ -85,7 +85,10 @@ ipcMain.on('createcourse', (event, arg) => {
             note: []
         };
     }
-    addClassSync(classes);
+    // addClassSync(classes);
+    console.log(listsemester(function (resoponse) {
+        console.log(resoponse);
+    }));
     settingsWindow.close();
 });
 ipcMain.on('processtable', (event, arg) => {
@@ -313,7 +316,7 @@ function deleteSemester(id) {
 
 function listsemester(pointer) {
     var semesters = [];
-    fs.readFile('../source/class.json', function (err, data) {
+    fs.readFile('./source/class.json', function (err, data) {
         if (err) {
             return console.error(err);
         }
