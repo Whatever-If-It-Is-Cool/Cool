@@ -1,5 +1,5 @@
 var fs = require("fs");
-//var flag = true;
+
 function log() {
     console.log('dsad');
 }
@@ -40,7 +40,6 @@ function addClass(semester, className, section, startTime, endTime, day, color) 
                 }
                 if (!hasSameClass) {
                     var newClass = "class" + numClass;
-                    //obj[sem][newClass] = JSON.parse(newData);
                     obj[sem][newClass] = newData;
                 }
             }
@@ -70,7 +69,6 @@ function deleteClass(semester, className, section) {
             var sem = "semester" + i;
             if (obj[sem].id.localeCompare(semester) == 0) {
                 var numClass = Object.size(obj[sem]);
-                //console.log(numClass);
                 for (var j = 1; j < numClass; j++) {
                     var newClass = "class" + j;
 
@@ -84,12 +82,10 @@ function deleteClass(semester, className, section) {
                         var succ = j + 1;
                         var temp = "class" + succ;
                         obj[sem][newClass] = obj[sem][temp];
-                        //console.log("shift " + newClass);
                     }
                     if (j = (length - 1)) {
                         var lastClass = "class" + j;
                         delete obj[sem][lastClass];
-                        //console.log("delelte last element " + newClass + " " + j + " " + lastClass);
                     }
 
                 }
@@ -114,7 +110,6 @@ function addSemester(id) {
     fs.readFile('../source/class.json', function (err, data) {
         if (err) {
             return console.error(err);
-            // return;
         }
         var obj = JSON.parse(data);
         var length = Object.size(obj) + 1;
@@ -123,23 +118,19 @@ function addSemester(id) {
             var sem = "semester" + i;
             if (obj[sem].id.localeCompare(id) == 0) {
                 console.log("check");
-                //return -1;
                 flag = false;
             }
-            //console.log(obj[sem].id.localeCompare(id));
         }
         if (flag) {
             obj[newSem] = {
                 "id": id
             };
-            //console.log(obj);
             fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
                 if (err) {
                     return console.error(err);
-                    // return;
+                    // ;
                 }
             });
-            //return 0;
         }
     });
     return flag;
@@ -183,11 +174,6 @@ function deleteSemester(id) {
     });
 }
 
-function findNote(semester, className, section) {
-    var path = "../resource/" + semester + "/" + className + "/" + section;
-
-}
-
 function listsemester(pointer) {
     var semesters = [];
     fs.readFile('../source/class.json', function (err, data) {
@@ -216,19 +202,6 @@ Object.size = function (obj) {
     return size;
 };
 
-// var temp = addSemester("Fall 2018");
-// console.log(temp);
-
-//deleteSemester("Spring 2016");
-
-//semester, className, section
-//deleteClass("Fall 2016", "COMS 309", "1");
-
-//semester, className, section, starTime, endTime, day, color
-//addClass("Fall 2016", "COMS 331", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
-
-//addSemester("test4");
-
 function addClassSync(classes) {
     fs.readFile('../source/class.json', function (err, data) {
         if (err) {
@@ -241,14 +214,14 @@ function addClassSync(classes) {
 
         for (var i = 1; i < length; i++) {
             var sem = "semester" + i;
-            if (obj[sem].id.localeCompare(classes.class.semester) == 0) {
+            if (obj[sem].id.localeCompare(classes.class1.semester) == 0) {
                 var numClass = Object.size(obj[sem]);
                 var size = Object.size(classes);
                 //var size = classes.length
                 for (var k = 0; k < size; k++) {
                     var newClass = "class" + (numClass + k);
                     var temp = "class" + (k + 1);
-                    console.log(temp);
+                    console.log("class " + temp);
                     var newData = {
                         "className": classes[temp].className,
                         "section": classes[temp].section,
@@ -274,48 +247,41 @@ function addClassSync(classes) {
         fs.close;
     });
 }
+// listsemester(function (response) {
+//     console.log(response);
+// });
 
-// classes = {
-//     "class1": {
-//         "semester": "test",
-//         "className": "COMS 362",
-//         "section": "1",
-//         "startTime": "4:10",
-//         "endTime": "5:10",
-//         "day": ["Mon", "Wed", "Fri"],
-//         "color": "none",
-//         "note": []
-//     },
-//     "class2": {
-//         "semester": "test",
-//         "className": "COMS 372",
-//         "section": "1",
-//         "startTime": "4:10",
-//         "endTime": "5:10",
-//         "day": ["Mon", "Wed", "Fri"],
-//         "color": "none",
-//         "note": []
-//     },
-//     "class3": {
-//         "semester": "test",
-//         "className": "COMS 378",
-//         "section": "1",
-//         "startTime": "4:10",
-//         "endTime": "5:10",
-//         "day": ["Mon", "Wed", "Fri"],
-//         "color": "none",
-//         "note": []
-//     }
-// };
-//addClassSync(classes);
-// addClass("test1231231", "COMS 371", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
-// addClass("test1231231", "COMS 372", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
-//var semester = ['1'];
+function findNote(semester, className, section) {
+    var path = "../resource/Notes/" + semester + "/" + className + "/" + noteName;
+    var files = [];
+    fs.readdir(path, function (err, files) {
+        if (err) {
+            return console.error(err);
+        }
+        files.forEach(function (file) {
+            files.push(file);
+        });
+        return files;
+    });
 
-// function log(message) {
-//     console.log(message);
-// }
-listsemester(function (response) {
-    console.log(response);
-    //console.log(data);
-});
+}
+
+function newNote(semester, className, noteName, data) {
+    var path = "../resource/Notes/" + semester + "/" + className + "/" + noteName;
+
+    fs.open(path, 'w', function (err, fd) {
+        if (err) {
+            return console.error(err);
+        }
+        console.log("File opened successfully!");
+    });
+
+    fs.writeFile(path, data, function (err) {
+        if (err) {
+            return console.error(err);
+        }
+    });
+    fs.close;
+}
+
+newNote("Spring", "COMS228", "Lecture1", "HelloWorld");
