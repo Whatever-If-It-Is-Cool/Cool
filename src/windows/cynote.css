@@ -26,6 +26,6 @@ div {
     margin: 0px;
 }
 
-html {
-    background-image: url('https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjKheftu6rSAhXJ5IMKHflhBx8QjRwIBQ&url=http%3A%2F%2Fwww.tooopen.com%2Fimg%2F87_311.aspx&psig=AFQjCNEwKp2TnT3krjVHX5iVtGxu4CI_tQ&ust=1488085297790779');
+body {
+    background-image: url('./bgbg.jpg');
 }

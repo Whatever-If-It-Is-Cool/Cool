@@ -17,14 +17,34 @@
         <div class="row" id="app">
             <div class="col-md-12 cynote-start cynote-mid">
                 <div class="cynote-font-large">
-                    <i class="fa fa-book"></i>&nbsp; {{title}}
+                    <i class="fa" v-bind:class="icons"></i>&nbsp; {{title}}
                 </div>
                 <hr>
                 <div class="cynote-font-mid">{{content}}</div>
                 <br>
                 <div class="cynote-mid">
-                    <button v-if="skip" v-on:click="skipit" class="button  button-pill button-large">Skip</button>
-                    <button v-on:click="next" class="button button-pill button-large"><i class="fa fa-arrow-right"></i></button>
+                    <input type="text" v-if="lable" v-bind:placeholder="placeholer" class="form-control" v-model="input">
+                    <div class="container-fluid" v-for="(i,index) in courses">
+                        <div class="col-md-3"><input type="text" v-if="tiger" v-bind:placeholder="placeholer" class="form-control" v-model="courses[index]"></div>
+                        <div clas="col-md-1">
+
+                        </div>
+                        <div clas="col-md-2">
+
+                        </div>
+                        <div clas="col-md-2">
+
+                        </div>
+                        <div clas="col-md-3">
+
+                        </div>
+                        <div clas="col-md-1">
+
+                        </div>
+                    </div>
+                    <br>
+                    <button v-if="skip" v-on:click="skipit" class="button button-pill button-highlight button-large">{{secondbutton}}</button>
+                    <button v-on:click="next" class="button button-pill button-primary button-large"><i class="fa fa-arrow-right"></i></button>                    >>>>>>> Stashed changes
                 </div>
             </div>
         </div>

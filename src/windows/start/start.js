@@ -7,21 +7,66 @@ var main = new Vue({
     data: {
         step: 0,
         skip: false,
+        lable: false,
+        tiger: false,
         title: 'Welcome',
-        content: 'We are guiding you to create a class table for new semester'
+        content: 'We are guiding you to create a class table for new semester',
+        input: '',
+        placeholer: '',
+        icon: 'book',
+        secondbutton: 'Skip',
+        courses: []
+    },
+    computed: {
+        icons: function () {
+            return 'fa-' + this.icon;
+        }
     },
     methods: {
         next: function () {
             switch (this.step) {
                 case 0:
-                    this.title = 'Semeter';
-                    this.content = 'Type the nick name of semester or click skip for default';
-                    this.skip = true;
+                    this.gotostep(1);
+                    break;
+                case 1:
+                    this.gotostep(2);
                     break;
             }
         },
         skipit: function () {
-            console.log('skipped');
+            switch (this.step) {
+                case 1:
+                    this.gotostep(2);
+                    break;
+                case 2:
+                    this.courses.push('');
+                    break;
+            }
+        },
+        gotostep(step) {
+            switch (step) {
+                case 1:
+                    this.title = 'Semeter';
+                    this.content = 'Type the nick name of semester or click skip for default';
+                    this.placeholer = 'Semeter Name';
+                    this.skip = true;
+                    this.lable = true;
+                    this.step = 1;
+                    this.icon = 'paragraph';
+                    break;
+                case 2:
+                    this.title = 'Course';
+                    this.content = 'Click add next course to add a new course, or next to process next step';
+                    this.secondbutton = 'Add next course';
+                    this.placeholer = 'Course id'
+                    this.step = 2;
+                    this.lable = false;
+                    this.tiger = true;
+                    this.icon = 'hand-o-up';
+                    break;
+                case 3:
+                    break;
+            }
         }
     }
 })
