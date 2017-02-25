@@ -49,26 +49,5 @@
             "color": "none",
             "note": []
         }
-    },
-    "semester3": {
-        "id": "test",
-        "class1": {
-            "className": "COMS 362",
-            "section": "1",
-            "startTime": "4:10",
-            "endTime": "5:10",
-            "day": ["Mon", "Wed", "Fri"],
-            "color": "none",
-            "note": []
-        },
-        "class2": {
-            "className": "COMS 372",
-            "section": "1",
-            "startTime": "4:10",
-            "endTime": "5:10",
-            "day": ["Mon", "Wed", "Fri"],
-            "color": "none",
-            "note": []
-        }
     }
 }

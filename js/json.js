@@ -188,6 +188,27 @@ function findNote(semester, className, section) {
 
 }
 
+function listsemester(pointer) {
+    var semesters = [];
+    fs.readFile('../source/class.json', function (err, data) {
+        //var semesters = [];
+        if (err) {
+            return console.error(err);
+        }
+        var obj = JSON.parse(data);
+        var length = Object.size(obj) + 1;
+
+        for (var i = 1; i < length; i++) {
+            var sem = "semester" + i;
+            semesters.push(obj[sem].id);
+            //console.log(semesters);
+        }
+        //return pointer;
+    });
+    fs.close;
+    return pointer(semesters);
+}
+
 var fs = require("fs");
 Object.size = function (obj) {
     var size = 0,
@@ -284,28 +305,46 @@ function addClassSync(classes) {
     });
 }
 
-// classes = {
-//     "class1": {
-//         "semester": "test",
-//         "className": "COMS 362",
-//         "section": "1",
-//         "startTime": "4:10",
-//         "endTime": "5:10",
-//         "day": ["Mon", "Wed", "Fri"],
-//         "color": "none",
-//         "note": []
-//     },
-//     "class2": {
-//         "semester": "test",
-//         "className": "COMS 372",
-//         "section": "1",
-//         "startTime": "4:10",
-//         "endTime": "5:10",
-//         "day": ["Mon", "Wed", "Fri"],
-//         "color": "none",
-//         "note": []
-//     }
-// };
-// addClassSync(classes);
+classes = {
+    "class1": {
+        "semester": "test",
+        "className": "COMS 362",
+        "section": "1",
+        "startTime": "4:10",
+        "endTime": "5:10",
+        "day": ["Mon", "Wed", "Fri"],
+        "color": "none",
+        "note": []
+    },
+    "class2": {
+        "semester": "test",
+        "className": "COMS 372",
+        "section": "1",
+        "startTime": "4:10",
+        "endTime": "5:10",
+        "day": ["Mon", "Wed", "Fri"],
+        "color": "none",
+        "note": []
+    },
+    "class3": {
+        "semester": "test",
+        "className": "COMS 378",
+        "section": "1",
+        "startTime": "4:10",
+        "endTime": "5:10",
+        "day": ["Mon", "Wed", "Fri"],
+        "color": "none",
+        "note": []
+    }
+};
+//addClassSync(classes);
 // addClass("test1231231", "COMS 371", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
 // addClass("test1231231", "COMS 372", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
+//var semester = ['1'];
+
+// function log(message) {
+//     console.log(message);
+// }
+listsemester(function (response) {
+    console.log(response);
+});
