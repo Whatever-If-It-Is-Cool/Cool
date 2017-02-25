@@ -8,7 +8,7 @@ var main = new Vue({
         step: 0,
         skip: false,
         title: 'Welcome',
-        content: 'We are guilding you to create a class table for new semester'
+        content: 'We are guiding you to create a class table for new semester'
     },
     methods: {
         next: function () {
