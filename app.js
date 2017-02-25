@@ -37,7 +37,7 @@ function createWindow() {
     });
 }
 ipcMain.on('asynchronous-message', (event, arg) => {
-    event.sender.send('asynchronous-reply', 'pong')
+    event.sender.send('asynchronous-reply', 'pong');
 });
 ipcMain.on('switchto', (event, arg) => {
     mainWindow.loadURL('file://' + __dirname + '/src/windows/' + arg + '.html');
@@ -46,26 +46,38 @@ ipcMain.on('createsemester', (event, arg) => {
     console.log(arg);
     addSemester(arg);
 });
+
+ipcMain.on('close-start-window', (event, arg) => {
+    settingsWindow.close();
+});
+
+ipcMain.on('getsemester', (event, arg) => {
+    var semesters = listsemester();
+    event.sender.send('getsemester-reply', semesters);
+});
+
 ipcMain.on('createcourse', (event, arg) => {
-    for (var i = 0; i < arg.length; i++) {
+    var classes;
+    for (var i = 0; i < arg[0].length; i++) {
         var days = [];
-        if (arg[i].mon == true) {
+        if (arg[0][i].mon == true) {
             days.push("Mon");
         }
-        if (arg[i].tue == true) {
+        if (arg[0][i].tue == true) {
             days.push("Tue");
         }
-        if (arg[i].wed == true) {
+        if (arg[0][i].wed == true) {
             days.push("Wed");
         }
-        if (arg[i].thu == true) {
-            days.push("Thy");
+        if (arg[0][i].thu == true) {
+            days.push("Thu");
         }
-        if (arg[i].fri == true) {
+        if (arg[0][i].fri == true) {
             days.push("Fri");
         }
-        addClass(arg[1], arg[i].courseid, arg[i].section, arg[i].starttime, arg[i].endtime, days, arg[i].color)
+        addClass(arg[1], arg[0][i].courseid, arg[0][i].section, arg[0][i].starttime, arg[0][i].endtime, days, arg[0][i].color);
     }
+    settingsWindow.close();
 });
 ipcMain.on('processwindow', (event, arg) => {
     if (settingsWindow) {
@@ -73,8 +85,9 @@ ipcMain.on('processwindow', (event, arg) => {
     }
 
     settingsWindow = new BrowserWindow({
-        height: 1920,
-        width: 1080
+        height: 700,
+        width: 1080,
+        frame: false
     });
 
     settingsWindow.loadURL('file://' + __dirname + '/src/windows/start/start.html');
