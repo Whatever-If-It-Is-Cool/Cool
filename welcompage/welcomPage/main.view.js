@@ -14,3 +14,7 @@ function test() {
 function switchs() {
     ipcRenderer.send('processwindow');
 }
+
+function log() {
+    ipcRenderer.send('processtable');
+}

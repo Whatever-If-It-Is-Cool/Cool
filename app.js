@@ -89,6 +89,9 @@ ipcMain.on('createcourse', (event, arg) => {
     addClassSync(classes);
     settingsWindow.close();
 });
+ipcMain.on('processtable', (event, arg) => {
+    log();
+});
 ipcMain.on('processwindow', (event, arg) => {
     if (settingsWindow) {
         return;
@@ -131,7 +134,7 @@ app.on("activate", function () {
 });
 
 function log() {
-    console.log('dsad');
+    mainWindow.loadURL('file://' + __dirname + '/Table.html');
 }
 
 function addClass(semester, className, section, startTime, endTime, day, color) {
