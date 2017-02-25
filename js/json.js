@@ -1,5 +1,8 @@
 var fs = require("fs");
 //var flag = true;
+function log() {
+    console.log('dsad');
+}
 
 function addClass(semester, className, section, startTime, endTime, day, color) {
     var newData = {

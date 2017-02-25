@@ -1,5 +1,4 @@
 // --- 主要依赖 ---
-
 // 载入electron模块
 const electron = require("electron");
 // 创建应用程序对象
@@ -25,7 +24,7 @@ function createWindow() {
         width: 1920,
         height: 1080
     });
-
+    log();
     // 通过浏览器窗口对象加载index.html文件，同时也是可以加载一个互联网地址的
     // 同时也可以简化成：mainWindow.loadURL('./index.html');
     mainWindow.loadURL('file://' + __dirname + '/welcompage/welcomPage/welcomPage.html');
@@ -42,6 +41,27 @@ ipcMain.on('asynchronous-message', (event, arg) => {
 });
 ipcMain.on('switchto', (event, arg) => {
     mainWindow.loadURL('file://' + __dirname + '/src/windows/' + arg + '.html');
+});
+ipcMain.on('createcourse', (event, arg) => {
+    for (var i = 0; i < arg[0].length; i++) {
+        var days = [];
+        if (arg[0][i].mon == true) {
+            days.push("Mon");
+        }
+        if (arg[0][i].tue == true) {
+            days.push("Tue");
+        }
+        if (arg[0][i].wed == true) {
+            days.push("Wed");
+        }
+        if (arg[0][i].thu == true) {
+            days.push("Thy");
+        }
+        if (arg[0][i].fri == true) {
+            days.push("Fri");
+        }
+        addClass(arg[1], arg[0][i].courseid, arg[0][i].section, arg[0][i].starttime, arg[0][i].endtime, days, arg[0][i].color)
+    }
 });
 ipcMain.on('processwindow', (event, arg) => {
     if (settingsWindow) {
@@ -82,3 +102,193 @@ app.on("activate", function () {
         createWindow();
     }
 });
+
+function log() {
+    console.log('dsad');
+}
+
+function addClass(semester, className, section, startTime, endTime, day, color) {
+    var newData = {
+        "className": className,
+        "section": section,
+        "startTime": startTime,
+        "endTime": endTime,
+        "day": day,
+        "color": color,
+        "note": []
+    };
+
+    //读取文档找到正确位置插入
+    fs.readFile('./source/class.json', function (err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        var obj = JSON.parse(data);
+        var length = Object.size(obj) + 1;
+        var hasSameClass = false;
+
+        for (var i = 1; i < length; i++) {
+            var sem = "semester" + i;
+            if (obj[sem].id.localeCompare(semester) == 0) {
+                var numClass = Object.size(obj[sem]);
+                for (var j = 1; j < numClass; j++) {
+                    var checkClass = "class" + j;
+                    if ((obj[sem][checkClass].className.localeCompare(className) == 0) &&
+                        (obj[sem][checkClass].section.localeCompare(section) == 0)) {
+                        hasSameClass = true;
+                        return -1;
+                    }
+                }
+                if (!hasSameClass) {
+                    var newClass = "class" + numClass;
+                    //obj[sem][newClass] = JSON.parse(newData);
+                    obj[sem][newClass] = newData;
+                }
+            }
+        }
+
+        fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+        if (hasSameClass) return -1;
+        else return 0;
+    });
+}
+
+function deleteClass(semester, className, section) {
+    fs.readFile('../source/class.json', function (err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        var obj = JSON.parse(data);
+        var length = Object.size(obj) + 1;
+        var deleted = false;
+
+        for (var i = 1; i < length; i++) {
+            var sem = "semester" + i;
+            if (obj[sem].id.localeCompare(semester) == 0) {
+                var numClass = Object.size(obj[sem]);
+                //console.log(numClass);
+                for (var j = 1; j < numClass; j++) {
+                    var newClass = "class" + j;
+
+                    if ((obj[sem][newClass].className.localeCompare(className) == 0) &&
+                        (obj[sem][newClass].section.localeCompare(section) == 0)) {
+                        delete obj[sem][newClass];
+                        deleted = true;
+                        console.log("find equal");
+                    }
+                    if (deleted && j != (numClass - 1)) {
+                        var succ = j + 1;
+                        var temp = "class" + succ;
+                        obj[sem][newClass] = obj[sem][temp];
+                        //console.log("shift " + newClass);
+                    }
+                    if (j = (length - 1)) {
+                        var lastClass = "class" + j;
+                        delete obj[sem][lastClass];
+                        //console.log("delelte last element " + newClass + " " + j + " " + lastClass);
+                    }
+
+                }
+            }
+        }
+
+
+        fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+        if (deleted) return 0;
+        else return -1;
+    });
+
+
+}
+
+function addSemester(id) {
+    var flag = true;
+    fs.readFile('../source/class.json', function (err, data) {
+        if (err) {
+            return console.error(err);
+            // return;
+        }
+        var obj = JSON.parse(data);
+        var length = Object.size(obj) + 1;
+        var newSem = "semester" + length;
+        for (var i = 1; i < length; i++) {
+            var sem = "semester" + i;
+            if (obj[sem].id.localeCompare(id) == 0) {
+                console.log("check");
+                //return -1;
+                flag = false;
+            }
+            //console.log(obj[sem].id.localeCompare(id));
+        }
+        if (flag) {
+            obj[newSem] = {
+                "id": id
+            };
+            //console.log(obj);
+            fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+                if (err) {
+                    return console.error(err);
+                    // return;
+                }
+            });
+            //return 0;
+        }
+    });
+    return flag;
+}
+
+//删除学期，id是“Fall 2016”这样的形式
+function deleteSemester(id) {
+    fs.readFile('../source/class.json', function (err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        var obj = JSON.parse(data);
+        var length = Object.size(obj) + 1;
+        var hasElement = false;
+
+        //找名字和id一样的学期 然后删掉
+        for (var i = 1; i < length; i++) {
+            var sem = "semester" + i;
+            if (obj[sem].id.localeCompare(id) == 0) {
+                delete obj[sem];
+                hasElement = true;
+            }
+            if (hasElement && i != length) {
+                var succ = i + 1;
+                var temp = "semester" + succ;
+                obj[sem] = obj[temp];
+            }
+            if (i == length) {
+                delete obj[sem];
+            }
+        }
+
+
+        fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+        if (hasElement) return 0;
+        else return -1;
+    });
+}
+
+var fs = require("fs");
+Object.size = function (obj) {
+    var size = 0,
+        key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};

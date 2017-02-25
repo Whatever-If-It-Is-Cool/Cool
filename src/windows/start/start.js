@@ -1,7 +1,6 @@
-// var Vue = require('vue');
-// jQuery(document).ready(function () {
-//     $.backstretch("https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjKheftu6rSAhXJ5IMKHflhBx8QjRwIBQ&url=http%3A%2F%2Fwww.tooopen.com%2Fimg%2F87_311.aspx&psig=AFQjCNEwKp2TnT3krjVHX5iVtGxu4CI_tQ&ust=1488085297790779");
-// });
+const {
+    ipcRenderer
+} = require('electron');
 var main = new Vue({
     el: '#app',
     data: {
@@ -30,6 +29,9 @@ var main = new Vue({
                     break;
                 case 1:
                     this.gotostep(2);
+                    break;
+                case 2:
+                    ipcRenderer.send('createcourse', [this.courses, this.input]);
                     break;
             }
         },
@@ -76,6 +78,7 @@ var main = new Vue({
                     this.icon = 'hand-o-up';
                     break;
                 case 3:
+
                     break;
             }
         }
