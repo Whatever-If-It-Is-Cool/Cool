@@ -253,7 +253,7 @@ function addClassSync(classes) {
 
         for (var i = 1; i < length; i++) {
             var sem = "semester" + i;
-            if (obj[sem].id.localeCompare(classes.class2.semester) == 0) {
+            if (obj[sem].id.localeCompare(classes.class.semester) == 0) {
                 var numClass = Object.size(obj[sem]);
                 // hasSemester = true;
                 // for (var j = 1; j < numClass; j++) {
