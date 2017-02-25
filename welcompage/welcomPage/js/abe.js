@@ -3,5 +3,9 @@ var buttons = new Vue({
     data: {
         buttons: ["fall", 2]
     },
-
+    methods: {
+        clickaclass: function (aclass) {
+            console.log(aclass);
+        }
+    }
 })

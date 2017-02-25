@@ -51,8 +51,10 @@ ipcMain.on('close-start-window', (event, arg) => {
 });
 
 ipcMain.on('getsemester', (event, arg) => {
-    var semesters = listsemester();
-    event.sender.send('getsemester-reply', semesters);
+    listsemester(function (resoponse) {
+        event.sender.send('getsemester-reply', resoponse);
+    })
+
 });
 
 ipcMain.on('createcourse', (event, arg) => {
@@ -90,6 +92,7 @@ ipcMain.on('createcourse', (event, arg) => {
         console.log(resoponse);
     }));
     settingsWindow.close();
+    createWindow();
 });
 ipcMain.on('processtable', (event, arg) => {
     log();
@@ -239,7 +242,7 @@ function deleteClass(semester, className, section) {
 
 
 }
-
+//dsfdsad
 function addSemester(id) {
     var flag = true;
     fs.readFile('./source/class.json', function (err, data) {

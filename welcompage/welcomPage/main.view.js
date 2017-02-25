@@ -18,3 +18,11 @@ function switchs() {
 function log() {
     ipcRenderer.send('processtable');
 }
+
+function getseme() {
+    ipcRenderer.send('getsemester');
+    ipcRenderer.once('getsemester-reply', (event, arg) => {
+        buttons.buttons = arg;
+    })
+}
+getseme();
