@@ -396,7 +396,31 @@ function addClassSync(classes) {
     });
 }
 
+var mkdirp = require('mkdirp');
+
+function newNote(semester, className, noteName, data) {
+    var path = "../source/Notes/" + semester + "/" + className;
+
+    mkdirp(path, function (err) {
+
+        // path exists unless there was an error
+        path += "/" + noteName;
+
+        fs.writeFile(path, data, function (err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+
+    });
+
+
+    fs.close;
+}
+
+
 var fs = require("fs");
+
 Object.size = function (obj) {
     var size = 0,
         key;

@@ -1,4 +1,5 @@
 var fs = require("fs");
+var mkdirp = require('mkdirp');
 
 function log() {
     console.log('dsad');
@@ -267,20 +268,22 @@ function findNote(semester, className, section) {
 }
 
 function newNote(semester, className, noteName, data) {
-    var path = "../resource/Notes/" + semester + "/" + className + "/" + noteName;
+    var path = "../source/Notes/" + semester + "/" + className;
 
-    fs.open(path, 'w', function (err, fd) {
-        if (err) {
-            return console.error(err);
-        }
-        console.log("File opened successfully!");
+    mkdirp(path, function (err) {
+
+        // path exists unless there was an error
+        path += "/" + noteName;
+
+        fs.writeFile(path, data, function (err) {
+            if (err) {
+                return console.error(err);
+            }
+        });
+
     });
 
-    fs.writeFile(path, data, function (err) {
-        if (err) {
-            return console.error(err);
-        }
-    });
+
     fs.close;
 }
 
