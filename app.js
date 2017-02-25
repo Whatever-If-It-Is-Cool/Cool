@@ -28,7 +28,7 @@ function createWindow() {
 
     // 通过浏览器窗口对象加载index.html文件，同时也是可以加载一个互联网地址的
     // 同时也可以简化成：mainWindow.loadURL('./index.html');
-    mainWindow.loadURL('file://' + __dirname + '/particles.js-master/demo/index.html');
+    mainWindow.loadURL('file://' + __dirname + '/welcompage/welcomPage/welcomPage.html');
     // mainWindow.loadURL('http://www.sushithedog.com');
     // 打开程序的同时打开开发者工具
     mainWindow.openDevTools();

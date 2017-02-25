@@ -252,3 +252,7 @@ canvas {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+
+#editor-container {
+  height: 375px;
+}
