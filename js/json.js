@@ -191,7 +191,6 @@ function findNote(semester, className, section) {
 function listsemester() {
     var semesters = [];
     fs.readFile('../source/class.json', function (err, data) {
-        //var semesters = [];
         if (err) {
             return console.error(err);
         }
@@ -201,12 +200,10 @@ function listsemester() {
         for (var i = 1; i < length; i++) {
             var sem = "semester" + i;
             semesters.push(obj[sem].id);
-            //console.log(semesters);
         }
-        //return pointer;
+        return pointer(semesters);
     });
     fs.close;
-    return semesters;
 }
 
 var fs = require("fs");
@@ -345,6 +342,7 @@ classes = {
 // function log(message) {
 //     console.log(message);
 // }
-listsemester(function (response) {
+listsemester(function (response, data) {
     console.log(response);
+    console.log(data);
 });
