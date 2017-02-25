@@ -19,11 +19,9 @@ function addSemester(id) {
         console.log(length);
         var newSem = "semester" + length;
         console.log(newSem);
-        obj.newSem = {
-            "id": id
-        };
+        obj[length][0] = id;
         console.log(obj);
-        console.log("Asynchronous read: " + obj.semester3.id);
+        console.log("Asynchronous read: " + obj[3][0]);
     });
 }
 

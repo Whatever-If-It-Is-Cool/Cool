@@ -1,37 +1,37 @@
-{
-    "semester1": [{
-        "className": "COMS 327",
-        "section": "1",
-        "startTime": "1:10",
-        "endTime": "2:00",
-        "day": ["Mon", "Wed", "Fri"],
-        "color": "red",
-        "note": ["Lecture 1", "Lecture 2"]
-    }, {
-        "className": "COMS 330",
-        "section": "2",
-        "startTime": "2:10",
-        "endTime": "3:00",
-        "day": ["Mon", "Wed", "Fri"],
-        "color": "blue",
-        "note": ["Lecture 1", "Lecture 2"]
-    }],
+[
+    [[
+        "COMS 327",
+        "1",
+        "1:10",
+        "2:00",
+        ["Mon", "Wed", "Fri"],
+        "red",
+        ["Lecture 1", "Lecture 2"]
+    ], [
+        "COMS 330",
+        "2",
+        "2:10",
+        "3:00",
+        ["Mon", "Wed", "Fri"],
+        "blue",
+        ["Lecture 1", "Lecture 2"]
+    ],
 
-    "semester2": [{
-        "className": "COMS 309",
-        "section": "1",
-        "startTime": "1:10",
-        "endTime": "2:00",
-        "day": ["Mon", "Wed", "Fri"],
-        "color": "red",
-        "note": ["Lecture 1", "Lecture 2"]
-    }, {
-        "className": "COMS 319",
-        "section": "A",
-        "startTime": "2:10",
-        "endTime": "3:00",
-        "day": ["Mon", "Wed", "Fri"],
-        "color": "blue",
-        "note": ["Lecture 1", "Lecture 2"]
-    }]
-}
+    [[
+        "COMS 309",
+        "1",
+        "1:10",
+        "2:00",
+        ["Mon", "Wed", "Fri"],
+        "red",
+        ["Lecture 1", "Lecture 2"]
+    ], [
+        "COMS 319",
+        "A",
+        "2:10",
+        "3:00",
+        ["Mon", "Wed", "Fri"],
+        "blue",
+        ["Lecture 1", "Lecture 2"]
+    ]]
+]
