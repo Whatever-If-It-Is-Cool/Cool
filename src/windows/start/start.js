@@ -29,9 +29,10 @@ var main = new Vue({
                     break;
                 case 1:
                     this.gotostep(2);
+                    ipcRenderer.send('createsemester', this.input);
                     break;
                 case 2:
-                    ipcRenderer.send('createcourse', [this.courses, this.input]);
+                    ipcRenderer.send('createcourse', this.courses);
                     break;
             }
         },

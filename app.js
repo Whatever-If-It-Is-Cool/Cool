@@ -42,26 +42,29 @@ ipcMain.on('asynchronous-message', (event, arg) => {
 ipcMain.on('switchto', (event, arg) => {
     mainWindow.loadURL('file://' + __dirname + '/src/windows/' + arg + '.html');
 });
+ipcMain.on('createsemester', (event, arg) => {
+    console.log(arg);
+    addSemester(arg);
+});
 ipcMain.on('createcourse', (event, arg) => {
-    addSemester(arg[1]);
-    for (var i = 0; i < arg[0].length; i++) {
+    for (var i = 0; i < arg.length; i++) {
         var days = [];
-        if (arg[0][i].mon == true) {
+        if (arg[i].mon == true) {
             days.push("Mon");
         }
-        if (arg[0][i].tue == true) {
+        if (arg[i].tue == true) {
             days.push("Tue");
         }
-        if (arg[0][i].wed == true) {
+        if (arg[i].wed == true) {
             days.push("Wed");
         }
-        if (arg[0][i].thu == true) {
+        if (arg[i].thu == true) {
             days.push("Thy");
         }
-        if (arg[0][i].fri == true) {
+        if (arg[i].fri == true) {
             days.push("Fri");
         }
-        addClass(arg[1], arg[0][i].courseid, arg[0][i].section, arg[0][i].starttime, arg[0][i].endtime, days, arg[0][i].color)
+        addClass(arg[1], arg[i].courseid, arg[i].section, arg[i].starttime, arg[i].endtime, days, arg[i].color)
     }
 });
 ipcMain.on('processwindow', (event, arg) => {
