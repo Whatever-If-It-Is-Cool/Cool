@@ -57,7 +57,7 @@ ipcMain.on('getsemester', (event, arg) => {
 });
 
 ipcMain.on('createcourse', (event, arg) => {
-    var classes;
+    var classes = new Object();
     for (var i = 0; i < arg[0].length; i++) {
         var days = [];
         if (arg[0][i].mon == true) {
@@ -75,8 +75,18 @@ ipcMain.on('createcourse', (event, arg) => {
         if (arg[0][i].fri == true) {
             days.push("Fri");
         }
-        addClass(arg[1], arg[0][i].courseid, arg[0][i].section, arg[0][i].starttime, arg[0][i].endtime, days, arg[0][i].color);
+        classes["class" + (i + 1)] = {
+            semester: arg[1],
+            className: arg[0][i].courseid,
+            section: arg[0][i].section,
+            startTime: arg[0][i].starttime,
+            endTime: arg[0][i].endtime,
+            day: days,
+            color: arg[0][i].color,
+            note: []
+        };
     }
+    addClassSync(classes);
     settingsWindow.close();
 });
 ipcMain.on('processwindow', (event, arg) => {
@@ -313,7 +323,7 @@ function addClassSync(classes) {
 
     //读取文档找到正确位置插入
     //var data = fs.readFileSync('../class.json');
-    fs.readFile('../source/class.json', function (err, data) {
+    fs.readFile('./source/class.json', function (err, data) {
         if (err) {
             return console.error(err);
         }
@@ -362,7 +372,7 @@ function addClassSync(classes) {
             }
         }
 
-        fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+        fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
             if (err) {
                 return console.error(err);
             }
