@@ -1,287 +1,317 @@
 <!DOCTYPE html>
+
 <head>
-<title>
-ClassTable
-</title>
-
-<style type="text/css">
-table{
-  table-layout: fixed;
-  width:800px;
-}
-
-td:nth-child(even){background-color:lightgray}
-
-.Title{    
-font-family:"Impact";
-font-size:30px;
-color:darkred;
-}
-
-body{
-  font:normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-  color:#4f6b72;
-  background:#E6EAE9;
-}
-a{
-  color:#c75f3e;
-}
-#mytable{
-  width:700px;
-  padding:0;
-  margin:0; 
-}
-th{
-  font:bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-  color:#4f6b72;
-  border-right:1px solid #C1DAD7;
-  border-bottom:1px solid #C1DAD7;
-  border-top:1px solid #C1DAD7;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  text-align:left;
-  padding:6px 6px 6px 12px;
-  background:#CAE8EA url(images/bg_header.jpg) no-repeat;
-  
-}
-th.nobg{
-  border-top:0;
-  border-left:0;
-  border-right:1px solid #C1DAD7;
-  background:none;
-}
-td{
-  border-right:1px solid #C1DAD7;
-  border-bottom:1px solid #C1DAD7;
-  background:#fff;
-  font-size:11px;
-  padding:6px 6px 6px 12px;
-  color:#4f6b72;
-}
-td.alt{
-  background:#F5FAFA;
-  color:797268;
-}
-th.spec {
-  border-left:1px solid #C1DAD7;
-  border-top:0;
-  font:bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-}
-th.specalt{
-  border-left:1px solid #C1DAD7;
-  border-top:0;
-  font:bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-  color:#797268;
-}
+  <title>
+    ClassTable
+  </title>
 
 
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+  <style type="text/css">
+    table {
+      table-layout: fixed;
+      width: 800px;
+    }
     
-     
-}
-
-
-
-
-
-td:hover{background-color:#f5f5f5}
-
-
-
-</style>
+    td:nth-child(even) {
+      background-color: lightgray
+    }
+    
+    .Title {
+      font-family: "Impact";
+      font-size: 30px;
+      color: darkred;
+    }
+    
+    body {
+      font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+      color: #4f6b72;
+      background: #E6EAE9;
+    }
+    
+    a {
+      color: #c75f3e;
+    }
+    
+    #mytable {
+      width: 700px;
+      padding: 0;
+      margin: 0;
+    }
+    
+    th {
+      font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+      color: #4f6b72;
+      border-right: 1px solid #C1DAD7;
+      border-bottom: 1px solid #C1DAD7;
+      border-top: 1px solid #C1DAD7;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 6px 6px 6px 12px;
+      background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+    }
+    
+    th.nobg {
+      border-top: 0;
+      border-left: 0;
+      border-right: 1px solid #C1DAD7;
+      background: none;
+    }
+    
+    td {
+      border-right: 1px solid #C1DAD7;
+      border-bottom: 1px solid #C1DAD7;
+      background: #fff;
+      font-size: 11px;
+      padding: 6px 6px 6px 12px;
+      color: #4f6b72;
+    }
+    
+    td.alt {
+      background: #F5FAFA;
+      color: 797268;
+    }
+    
+    th.spec {
+      border-left: 1px solid #C1DAD7;
+      border-top: 0;
+      font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    }
+    
+    th.specalt {
+      border-left: 1px solid #C1DAD7;
+      border-top: 0;
+      font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+      color: #797268;
+    }
+    
+    th,
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    td:hover {
+      background-color: #f5f5f5
+    }
+  </style>
 </head>
+
 <body>
-<table>
-<caption class="Title">
-ClassTable
-</caption>
+  <header class="header">
+    <div class="nva">
+      <ul class="list">
+        <li><a href="Android.html">Android</a></li>
+        <li><a href="C++.html">C++</a></li>
+        <li><a href="IOS.html">IOS</a></li>
+        <li><a href="Java.html">Java</a></li>
+        <li><a href="Ruby.html">Ruby</a></li>
+      </ul>
+    </div>
+  </header>
+  <table>
+    <caption class="Title">
+      ClassTable
+    </caption>
 
-<div>
-<thead class="C1">
-<th>Time</th>
-</th>
-<th>Monday</th>
-<th>Tuesday</th>
-<th>Wednesday</th>
-<th>Thursday</th>
-<th>Friday</th>
-<th>Saturday</th>
-<th>Sunday</th>
-</thead>
-</div>
-
-
-</tr><!--*ClassTable for 8:00-->
-<tr class="C2">
-    <td>8:00</td>
-    <td onclick="ddd()"> Math</td>
-    <td></td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
+    <div>
+      <thead class="C1">
+        <th>Time</th>
+        </th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </thead>
+    </div>
 
 
-</tr><!--*ClassTable for 9:00-->
-<tr class="C2">
-    <td>9:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 10:00-->
-<tr class="C2">
-    <td>10:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 11:00-->
-<tr class="C2">
-    <td>11:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 12:00-->
-<tr class="C2">
-    <td>12:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 13:00-->
-<tr class="C2">
-    <td>13:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 14:00-->
-<tr class="C2">
-    <td>14:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 15:00-->
-<tr class="C2">
-    <td>15:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 16:00-->
-<tr class="C2">
-    <td>16:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 17:00-->
-<tr class="C2">
-    <td>17:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 18:00-->
-<tr class="C2">
-    <td>18:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Mathhhhhhhhhhh</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td></td>
-</tr>
-
-</tr><!--*ClassTable for 19:00-->
-<tr class="C2">
-    <td>19:00</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td>Math</td>
-    <td><ul id="example-1">
-  <li v-for="item in items">
-    {{ item.message }}
-  </li>
-</ul></td>
-    <td></td>
-</tr>
+    </tr>
+    <!--*ClassTable for 8:00-->
+    <tr class="C2">
+      <td>8:00</td>
+      <td onclick="ddd()"> Math</td>
+      <td></td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
 
 
-<script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+    </tr>
+    <!--*ClassTable for 9:00-->
+    <tr class="C2">
+      <td>9:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 10:00-->
+    <tr class="C2">
+      <td>10:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 11:00-->
+    <tr class="C2">
+      <td>11:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 12:00-->
+    <tr class="C2">
+      <td>12:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 13:00-->
+    <tr class="C2">
+      <td>13:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 14:00-->
+    <tr class="C2">
+      <td>14:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 15:00-->
+    <tr class="C2">
+      <td>15:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 16:00-->
+    <tr class="C2">
+      <td>16:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 17:00-->
+    <tr class="C2">
+      <td>17:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 18:00-->
+    <tr class="C2">
+      <td>18:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Mathhhhhhhhhhh</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td></td>
+    </tr>
+
+    </tr>
+    <!--*ClassTable for 19:00-->
+    <tr class="C2">
+      <td>19:00</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>Math</td>
+      <td>
+        <ul id="example-1">
+          <li v-for="item in items">
+            {{ item.message }}
+          </li>
+        </ul>
+      </td>
+      <td></td>
+    </tr>
 
 
-<script>
-function ddd(){
-    console.log('123');
-}
-
-var example1 = new Vue({
-  el: '#example-1',
-  data: {
-    items: [
-      {message:'Foo' },
-    ]
-  }
-})
-
-example1.items.push({ message: 'Baz' })
+    <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
 
-</script>
+    <script>
+      function ddd() {
+        console.log('123');
+      }
+
+      var example1 = new Vue({
+        el: '#example-1',
+        data: {
+          items: [{
+            message: 'Foo'
+          }, ]
+        }
+      })
+
+      example1.items.push({
+        message: 'Baz'
+      })
+    </script>
