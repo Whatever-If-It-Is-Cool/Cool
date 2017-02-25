@@ -239,7 +239,7 @@ function deleteClass(semester, className, section) {
 
 
 }
-//dsf
+//dsfdsad
 function addSemester(id) {
     var flag = true;
     fs.readFile('./source/class.json', function (err, data) {
