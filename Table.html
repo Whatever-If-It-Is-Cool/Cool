@@ -3,8 +3,12 @@
 <title>
 ClassTable
 </title>
-<style type="text/css">
 
+<style type="text/css">
+table{
+  table-layout: fixed;
+  width:800px;
+}
 
 
 body{
@@ -70,6 +74,11 @@ th, td {
     border-bottom: 1px solid #ddd;
      
 }
+
+:vertical-align:middle;
+:text_align:center;
+
+
 td:nth-child(even){background-color:azure}
 
 td:hover{background-color:#f5f5f5}
@@ -78,24 +87,15 @@ td:hover{background-color:#f5f5f5}
 
 </style>
 </head>
-
-
-
-
 <body>
 <table>
-    
-
-
-    
-<caption class="F1">
+<caption class="Title">
 ClassTable
 </caption>
-<tr class="C1">
+
+<div>
+<thead class="C1">
 <th>Time</th>
-<div class="C3"> 
-
-
 </th>
 <th>Monday</th>
 <th>Tuesday</th>
@@ -104,7 +104,7 @@ ClassTable
 <th>Friday</th>
 <th>Saturday</th>
 <th>Sunday</th>
-</tr>
+</thead>
 </div>
 
 
