@@ -34,3 +34,13 @@ body {
     width: 30px;
     height: 30px;
 }
+
+
+/*
+html,
+body {}
+
+input,
+button {
+    -webkit-app-region: no-drag;
+}*/

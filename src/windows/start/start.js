@@ -32,7 +32,7 @@ var main = new Vue({
                     ipcRenderer.send('createsemester', this.input);
                     break;
                 case 2:
-                    ipcRenderer.send('createcourse', this.courses);
+                    ipcRenderer.send('createcourse', [this.courses, this.input]);
                     break;
             }
         },
@@ -82,6 +82,10 @@ var main = new Vue({
 
                     break;
             }
+        },
+        closethis: function () {
+            ipcRenderer.send('close-start-window');
+
         }
     }
 })
