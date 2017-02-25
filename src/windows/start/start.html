@@ -25,26 +25,31 @@
                 <div class="cynote-mid">
                     <input type="text" v-if="lable" v-bind:placeholder="placeholer" class="form-control" v-model="input">
                     <div class="container-fluid" v-for="(i,index) in courses">
-                        <div class="col-md-3"><input type="text" v-if="tiger" v-bind:placeholder="placeholer" class="form-control" v-model="courses[index]"></div>
-                        <div clas="col-md-1">
-
+                        <div class="col-md-3"><input type="text" v-if="tiger" v-bind:placeholder="placeholer" class="form-control" v-model="courses[index].courseid"></div>
+                        <div class="col-md-1">
+                            <input type="text" v-if="tiger" placeholder="Sec" class="form-control" v-model="courses[index].section">
                         </div>
-                        <div clas="col-md-2">
-
+                        <div class="col-md-2">
+                            <input type="text" v-if="tiger" placeholder="Start" class="form-control" v-model="courses[index].starttime">
                         </div>
-                        <div clas="col-md-2">
-
+                        <div class="col-md-2">
+                            <input type="text" v-if="tiger" placeholder="End" class="form-control" v-model="courses[index].endtime">
                         </div>
-                        <div clas="col-md-3">
-
+                        <div class="col-md-3">
+                            <input type="checkbox" class="big-checkbox" v-model="courses[index].mon">
+                            <input type="checkbox" class="big-checkbox" v-model="courses[index].tue">
+                            <input type="checkbox" class="big-checkbox" v-model="courses[index].wed">
+                            <input type="checkbox" class="big-checkbox" v-model="courses[index].thu">
+                            <input type="checkbox" class="big-checkbox" v-model="courses[index].fri">
                         </div>
-                        <div clas="col-md-1">
-
+                        <div class="col-md-1">
+                            <input type="text" v-if="tiger" placeholder="Col" class="form-control" v-model="courses[index].color">
                         </div>
-                    </div>
+                        <br> </div>
+                    priview: {{courses}}
                     <br>
                     <button v-if="skip" v-on:click="skipit" class="button button-pill button-highlight button-large">{{secondbutton}}</button>
-                    <button v-on:click="next" class="button button-pill button-primary button-large"><i class="fa fa-arrow-right"></i></button>                    >>>>>>> Stashed changes
+                    <button v-on:click="next" class="button button-pill button-primary button-large"><i class="fa fa-arrow-right"></i></button>
                 </div>
             </div>
         </div>

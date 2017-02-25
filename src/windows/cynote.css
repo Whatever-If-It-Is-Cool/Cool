@@ -29,3 +29,8 @@ div {
 body {
     background-image: url('./bgbg.jpg');
 }
+
+.big-checkbox {
+    width: 30px;
+    height: 30px;
+}

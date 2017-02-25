@@ -39,7 +39,18 @@ var main = new Vue({
                     this.gotostep(2);
                     break;
                 case 2:
-                    this.courses.push('');
+                    this.courses.push({
+                        courseid: '',
+                        section: '',
+                        starttime: '',
+                        endtime: '',
+                        mon: false,
+                        tue: false,
+                        wed: false,
+                        thu: false,
+                        fri: false,
+                        color: ''
+                    });
                     break;
             }
         },
