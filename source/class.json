@@ -22,15 +22,6 @@
     },
     "semester2": {
         "id": "Fall 2016",
-        "class1": {
-            "className": "COMS 309",
-            "section": "1",
-            "startTime": "1:10",
-            "endTime": "2:00",
-            "day": ["Mon", "Wed", "Fri"],
-            "color": "red",
-            "note": ["Lecture 1", "Lecture 2"]
-        },
         "class2": {
             "className": "COMS 319",
             "section": "A",
@@ -40,8 +31,5 @@
             "color": "blue",
             "note": ["Lecture 1", "Lecture 2"]
         }
-    },
-    "semester3": {
-        "id": "Spring 2016"
     }
 }
