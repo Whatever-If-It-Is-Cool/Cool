@@ -262,6 +262,7 @@ var functions = {
 
         });
 
+<<<<<<< HEAD
 
         fs.close;
     }
@@ -277,6 +278,11 @@ Object.size = function (obj) {
     }
     return size;
 };
+=======
+    });
+    fs.close;
+}
+>>>>>>> origin/master
 
 newNote("Spring", "COMS228", "Lecture1", "HelloWorld");
 findNote();

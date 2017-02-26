@@ -10,6 +10,14 @@ function test() {
     })
     ipcRenderer.send('asynchronous-message', 'ping');
 }
+var functions = {
+    switchs: function () {
+        ipcRenderer.send('processwindow');
+    },
+    dsa: function () {
+
+    }
+}
 
 function switchs() {
     ipcRenderer.send('processwindow');
