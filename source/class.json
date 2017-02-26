@@ -51,7 +51,7 @@
         }
     },
     "semester3": {
-        "id": "test",
+        "id": "Spring 2017",
         "class1": {
             "className": "COMS 362",
             "section": "1",
@@ -68,72 +68,6 @@
             "endTime": "5:10",
             "day": ["Mon", "Wed", "Fri"],
             "color": "none",
-            "note": []
-        }
-    },
-    "semester4": {
-        "id": "888",
-        "class1": {
-            "className": "1",
-            "section": "1",
-            "startTime": "1",
-            "endTime": "1",
-            "day": [],
-            "color": "",
-            "note": []
-        }
-    },
-    "semester5": {
-        "id": "88373",
-        "class1": {
-            "className": "",
-            "section": "",
-            "startTime": "",
-            "endTime": "",
-            "day": [],
-            "color": "",
-            "note": []
-        }
-    },
-    "semester6": {
-        "id": "佳一门课",
-        "class1": {
-            "className": "大声道",
-            "section": "",
-            "startTime": "",
-            "endTime": "",
-            "day": [],
-            "color": "",
-            "note": []
-        }
-    },
-    "semester7": {
-        "id": "jbjbh",
-        "class1": {
-            "className": "",
-            "section": "",
-            "startTime": "",
-            "endTime": "",
-            "day": [],
-            "color": "",
-            "note": []
-        },
-        "class2": {
-            "className": "",
-            "section": "",
-            "startTime": "",
-            "endTime": "",
-            "day": [],
-            "color": "",
-            "note": []
-        },
-        "class3": {
-            "className": "",
-            "section": "",
-            "startTime": "",
-            "endTime": "",
-            "day": [],
-            "color": "",
             "note": []
         }
     }
