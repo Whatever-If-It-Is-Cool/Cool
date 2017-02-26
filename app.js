@@ -14,7 +14,7 @@ const {
 // 声明一个BrowserWindow对象实例
 let mainWindow;
 var settingsWindow = null;
-var backend = require('./js/json');
+var backendfunctions = require('./js/json.js');
 
 //定义一个创建浏览器窗口的方法
 function createWindow() {
@@ -43,7 +43,7 @@ ipcMain.on('switchto', (event, arg) => {
     mainWindow.loadURL('file://' + __dirname + '/src/windows/' + arg + '.html');
 });
 ipcMain.on('createsemester', (event, arg) => {
-    backend.addSemester(arg);
+    backendfunctions.addSemester(arg);
 });
 
 ipcMain.on('close-start-window', (event, arg) => {
@@ -51,7 +51,7 @@ ipcMain.on('close-start-window', (event, arg) => {
 });
 
 ipcMain.on('getsemester', (event, arg) => {
-    backend.listsemester(function (resoponse) {
+    backendfunctions.listsemester(function (resoponse) {
         event.sender.send('getsemester-reply', resoponse);
     })
 
@@ -89,15 +89,15 @@ ipcMain.on('createcourse', (event, arg) => {
             note: []
         };
     }
-    backend.addClassSync(classes);
-    console.log(backend.listsemester(function (resoponse) {
+    backendfunctions.addClassSync(classes);
+    console.log(backendfunctions.listsemester(function (resoponse) {
         console.log(resoponse);
     }));
     settingsWindow.close();
     createWindow();
 });
 ipcMain.on('processtable', (event, arg) => {
-    backend.log();
+    backendfunctions.log();
 });
 ipcMain.on('processwindow', (event, arg) => {
     if (settingsWindow) {

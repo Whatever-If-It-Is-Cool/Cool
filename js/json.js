@@ -1,9 +1,11 @@
 var fs = require("fs");
 var mkdirp = require('mkdirp');
 
-module.exports = functions;
 
 var functions = {
+    test: function () {
+        console.log('testfyunct');
+    },
     addclass: function (semester, className, section, startTime, endTime, day, color) {
         var newData = {
             "className": className,
@@ -16,7 +18,7 @@ var functions = {
         };
 
         //读取文档找到正确位置插入
-        fs.readFile('../source/class.json', function (err, data) {
+        fs.readFile('./source/class.json', function (err, data) {
             if (err) {
                 return console.error(err);
             }
@@ -45,7 +47,7 @@ var functions = {
                 }
             }
 
-            fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
                 if (err) {
                     return console.error(err);
                 }
@@ -57,7 +59,7 @@ var functions = {
     },
 
     deleteClass: function (semester, className, section) {
-        fs.readFile('../source/class.json', function (err, data) {
+        fs.readFile('./source/class.json', function (err, data) {
             if (err) {
                 return console.error(err);
             }
@@ -93,7 +95,7 @@ var functions = {
             }
 
 
-            fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
                 if (err) {
                     return console.error(err);
                 }
@@ -106,7 +108,7 @@ var functions = {
     },
     addSemester: function (id) {
         var flag = true;
-        fs.readFile('../source/class.json', function (err, data) {
+        fs.readFile('./source/class.json', function (err, data) {
             if (err) {
                 return console.error(err);
             }
@@ -124,7 +126,7 @@ var functions = {
                 obj[newSem] = {
                     "id": id
                 };
-                fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+                fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
                     if (err) {
                         return console.error(err);
                         // ;
@@ -135,7 +137,7 @@ var functions = {
         return flag;
     },
     deleteSemester: function (id) {
-        fs.readFile('../source/class.json', function (err, data) {
+        fs.readFile('./source/class.json', function (err, data) {
             if (err) {
                 return console.error(err);
             }
@@ -161,7 +163,7 @@ var functions = {
             }
 
 
-            fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
                 if (err) {
                     return console.error(err);
                 }
@@ -172,7 +174,7 @@ var functions = {
     },
     listsemester: function (pointer) {
         var semesters = [];
-        fs.readFile('../source/class.json', function (err, data) {
+        fs.readFile('./source/class.json', function (err, data) {
             if (err) {
                 return console.error(err);
             }
@@ -188,7 +190,7 @@ var functions = {
         fs.close;
     },
     addClassSync: function (classes) {
-        fs.readFile('../source/class.json', function (err, data) {
+        fs.readFile('./source/class.json', function (err, data) {
             if (err) {
                 return console.error(err);
             }
@@ -222,7 +224,7 @@ var functions = {
                 }
             }
 
-            fs.writeFile('../source/class.json', JSON.stringify(obj), function (err) {
+            fs.writeFile('./source/class.json', JSON.stringify(obj), function (err) {
                 if (err) {
                     return console.error(err);
                 }
@@ -233,7 +235,7 @@ var functions = {
         });
     },
     findNote: function (semester, className, section) {
-        var path = "../resource/Notes/" + semester + "/" + className + "/" + noteName;
+        var path = "./resource/Notes/" + semester + "/" + className + "/" + noteName;
         var files = [];
         fs.readdir(path, function (err, files) {
             if (err) {
@@ -246,7 +248,7 @@ var functions = {
         });
     },
     newNote: function (semester, className, noteName, data) {
-        var path = "../source/Notes/" + semester + "/" + className;
+        var path = "./source/Notes/" + semester + "/" + className;
 
         mkdirp(path, function (err) {
 
@@ -273,6 +275,4 @@ Object.size = function (obj) {
     }
     return size;
 };
-
-newNote("Spring", "COMS228", "Lecture1", "HelloWorld");
-findNote();
+module.exports = functions;
