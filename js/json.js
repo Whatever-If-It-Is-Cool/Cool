@@ -262,7 +262,8 @@ var functions = {
 
         });
 
-<<<<<<< HEAD
+        <<
+        << << < HEAD
 
         fs.close;
     }
@@ -271,18 +272,18 @@ var functions = {
 
 var fs = require("fs");
 Object.size = function (obj) {
-    var size = 0,
-        key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
-=======
-    });
-    fs.close;
+var size = 0,
+    key;
+for (key in obj) {
+    if (obj.hasOwnProperty(key)) size++;
 }
->>>>>>> origin/master
+return size;
+}; ===
+=== =
+});
+fs.close;
+} >>>
+>>> > origin / master
 
 newNote("Spring", "COMS228", "Lecture1", "HelloWorld");
 findNote();
