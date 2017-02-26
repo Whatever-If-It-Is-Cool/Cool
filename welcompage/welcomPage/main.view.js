@@ -19,6 +19,10 @@ var functions = {
     }
 }
 
+function minus() {
+    buttons.buttons.pop();
+}
+
 function switchs() {
     ipcRenderer.send('processwindow');
 }

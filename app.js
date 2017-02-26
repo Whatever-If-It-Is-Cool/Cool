@@ -22,8 +22,11 @@ function createWindow() {
     // 1024×768 合理的窗口大小
     mainWindow = new BrowserWindow({
         width: 1920,
-        height: 1080
+        height: 1080,
+        title: "Cynotepp",
+        icon: './src/windows/bgbg.jpg'
     });
+
     //addClass("test1231231", "COMS 353", "1", "4:10", "5:10", ["Mon", "Wed", "Fri"], "none");
     // 通过浏览器窗口对象加载index.html文件，同时也是可以加载一个互联网地址的
     // 同时也可以简化成：mainWindow.loadURL('./index.html');
@@ -57,6 +60,7 @@ ipcMain.on('getsemester', (event, arg) => {
 
 });
 ipcMain.on('switchtotable', (event, arg) => {
+    mainWindow.loadURL('file://' + __dirname + '/Table.html');
     console.log(arg);
 });
 ipcMain.on('createcourse', (event, arg) => {
@@ -121,7 +125,15 @@ ipcMain.on('synchronous-message', (event, arg) => {
     event.returnValue = 'pong';
 });
 // 监听应用程序对象是否初始化完成，初始化完成之后即可创建浏览器窗口
-app.on("ready", createWindow);
+app.on("ready", function () {
+    app.setAboutPanelOptions({
+        applicationName: 'CyNote',
+        applicationVersion: '0.1.0',
+        copyright: 'Whatever if it is cool',
+        version: '0.1.2'
+    });
+    createWindow();
+});
 
 // 监听应用程序对象中的所有浏览器窗口对象是否全部被关闭，如果全部被关闭，则退出整个应用程序。该
 app.on("window-all-closed", function () {

@@ -6,13 +6,8 @@
 <head>
 	<meta charset="utf-8">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.min.css" rel="stylesheet">
-
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<title>CyNote</title>
-
-
-
-
-
 	<meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
 	<meta name="author" content="Vincent Garreau" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -20,16 +15,12 @@
 </head>
 
 <body>
-
-
 	<div id="buttonlist" class="button-list">
 		<button type="button" class="button button-large button-pill" onmouseover="bigButton(this)" onmouseout="normalButton(this)"
-		    v-for="i in buttons" v-on:click="clickaclass(i)">{{i}} </button>
-		<button onclick="switchs()" class="button button-large button-pill" onmouseover="bigButton(this)" onmouseout="normalButton(this)">Lets's start</button>
+		    v-for="i in buttons" v-on:click="clickaclass(i)">{{i}}</button>&nbsp;
+		<button onclick="switchs()" class="button button-large button-pill" onmouseover="bigButton(this)" onmouseout="normalButton(this)"><i class="fa fa-plus"></i></button>&nbsp;
+		<button onclick="minus()" class="button button-large button-pill" onmouseover="bigButton(this)" onmouseout="normalButton(this)"><i class="fa fa-minus"></i></button>&nbsp;
 	</div>
-
-
-
 	<script>
 		function bigButton(x) {
 			x.style.height = "175px";
