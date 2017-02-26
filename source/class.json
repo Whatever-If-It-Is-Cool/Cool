@@ -94,5 +94,47 @@
             "color": "",
             "note": []
         }
+    },
+    "semester6": {
+        "id": "佳一门课",
+        "class1": {
+            "className": "大声道",
+            "section": "",
+            "startTime": "",
+            "endTime": "",
+            "day": [],
+            "color": "",
+            "note": []
+        }
+    },
+    "semester7": {
+        "id": "jbjbh",
+        "class1": {
+            "className": "",
+            "section": "",
+            "startTime": "",
+            "endTime": "",
+            "day": [],
+            "color": "",
+            "note": []
+        },
+        "class2": {
+            "className": "",
+            "section": "",
+            "startTime": "",
+            "endTime": "",
+            "day": [],
+            "color": "",
+            "note": []
+        },
+        "class3": {
+            "className": "",
+            "section": "",
+            "startTime": "",
+            "endTime": "",
+            "day": [],
+            "color": "",
+            "note": []
+        }
     }
 }

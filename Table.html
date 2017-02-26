@@ -98,17 +98,7 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="nva">
-      <ul class="list">
-        <li><a href="Android.html">Android</a></li>
-        <li><a href="C++.html">C++</a></li>
-        <li><a href="IOS.html">IOS</a></li>
-        <li><a href="Java.html">Java</a></li>
-        <li><a href="Ruby.html">Ruby</a></li>
-      </ul>
-    </div>
-  </header>
+
   <table>
     <caption class="Title">
       ClassTable
@@ -133,7 +123,7 @@
     <!--*ClassTable for 8:00-->
     <tr class="C2">
       <td>8:00</td>
-      <td onclick="ddd()"> Math</td>
+      <td onclick="openNoteList()"> Math</td>
       <td></td>
       <td>Math</td>
       <td>Math</td>
@@ -298,8 +288,8 @@
 
 
     <script>
-      function ddd() {
-        console.log('123');
+      function openNoteList() {
+        window.location.href = "./NoteList/NoteList.html";
       }
 
       var example1 = new Vue({
