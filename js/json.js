@@ -244,7 +244,6 @@ var functions = {
             });
             return files;
         });
-
     },
     newNote: function (semester, className, noteName, data) {
         var path = "../source/Notes/" + semester + "/" + className;
@@ -259,11 +258,7 @@ var functions = {
                     return console.error(err);
                 }
             });
-
         });
-
-<<<<<<< HEAD
-
         fs.close;
     }
 
@@ -278,11 +273,6 @@ Object.size = function (obj) {
     }
     return size;
 };
-=======
-    });
-    fs.close;
-}
->>>>>>> origin/master
 
 newNote("Spring", "COMS228", "Lecture1", "HelloWorld");
 findNote();
