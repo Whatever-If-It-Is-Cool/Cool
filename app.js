@@ -126,12 +126,12 @@ ipcMain.on('synchronous-message', (event, arg) => {
 });
 // 监听应用程序对象是否初始化完成，初始化完成之后即可创建浏览器窗口
 app.on("ready", function () {
-    app.setAboutPanelOptions({
-        applicationName: 'CyNote',
-        applicationVersion: '0.1.0',
-        copyright: 'Whatever if it is cool',
-        version: '0.1.2'
-    });
+    // app.setAboutPanelOptions({
+    //     applicationName: 'CyNote',
+    //     applicationVersion: '0.1.0',
+    //     copyright: 'Whatever if it is cool',
+    //     version: '0.1.2'
+    // });
     createWindow();
 });
 

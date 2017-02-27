@@ -70,5 +70,26 @@
             "color": "none",
             "note": []
         }
+    },
+    "semester4": {
+        "id": "new semester",
+        "class1": {
+            "className": "fdsaf",
+            "section": "asf",
+            "startTime": "das",
+            "endTime": "ffsadf",
+            "day": ["Mon", "Wed", "Fri"],
+            "color": "fasdf",
+            "note": []
+        },
+        "class2": {
+            "className": "afdsf",
+            "section": "asf",
+            "startTime": "sdaf",
+            "endTime": "sdafdasf",
+            "day": ["Mon", "Wed", "Thu"],
+            "color": "fasdf",
+            "note": []
+        }
     }
 }
